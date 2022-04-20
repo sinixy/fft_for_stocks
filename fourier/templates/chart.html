@@ -1,0 +1,118 @@
+{% extends 'index.html' %}
+
+
+{% block scripts_before %}
+<script type="text/javascript">
+$(document).ready(function() {
+	// https://xdsoft.net/jqplugins/datetimepicker/
+	var chart_data = {{chart_data | safe}};
+	// https://plotly.com/javascript/plotlyjs-function-reference/
+	Plotly.plot('chart', JSON.parse(chart_data['data']['chart']), {});
+	$('#train_start, #train_end').datetimepicker({
+		format: 'DD-MM-YYYY',
+		maxDate: moment()
+	});
+	$('#prediction_end').datetimepicker({
+		format: 'DD-MM-YYYY'
+	});
+	$('#train_start').val(chart_data['data']['train_start']);
+	$('#train_end').val(chart_data['data']['train_end']);
+	$('prediction_end').val(chart_data['data']['prediction_end']);
+	$('.asset').first().addClass('selected');
+	$('.asset').click(function() {
+		$('.selected').removeClass('selected');
+		$(this).addClass('selected');
+		var e = $(this).children('span');
+		$.ajax({
+			type: 'GET',
+			url: '/update_chart',
+			dataType: 'json',
+			data: {'asset': e.attr('id'), 'changeDate': 0},
+			success: function(response) {
+				if(response['errors'].length == 0) {
+					Plotly.newPlot('chart', JSON.parse(response['data']['chart']), {});
+					$('#train_start').val(response['data']['train_start']);
+					$('#train_end').val(response['data']['train_end']);
+					$('prediction_end').val(response['data']['prediction_end'])
+				} else {
+					alert(response['errors'][0]);
+				}
+			},
+			error: function(response) {
+				console.log(response);
+			}
+		});
+	});
+	$('#apply-date').click(function() {
+		var symbol = $('.selected').children('span').attr('id');
+		var train_start = $('#train_start').val();
+		var train_end = $('#train_end').val();
+		var prediction_end = $('#prediction_end').val();
+		$.ajax({
+			type: 'GET',
+			url: '/update_chart',
+			dataType: 'json',
+			data: {
+				'asset': symbol,
+				'train_start': train_start,
+				'train_end': train_end,
+				'prediction_end': prediction_end,
+				'changeDate': 1
+			},
+			success: function(response) {
+				if(response['errors'].length == 0) {
+					Plotly.newPlot('chart', JSON.parse(response['data']['chart']), {});
+					$('#train_start').val(response['data']['train_start']);	
+				} else {
+					alert(response['errors'][0]);
+				}
+			},
+			error: function(response) {
+				console.log(response);
+			}
+		});
+	});
+});
+</script>
+{% endblock %}
+
+
+{% block content %}
+<div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="chart" class="col-md-6 col-lg-8 col-xl-9">
+			</div>
+			<div class="col-md-6 col-xl-3">
+				<div>
+					{% for a in assets %}
+					<div class="asset" style="width: 100%;">
+						<span id="{{ a.symbol }}" style="font-size: 20px;">{{ a.description }}</span>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="width: 30%; margin-left: auto; margin-right: auto;">
+		<div class="date-input">
+			<label>Початок області тренувальних даних</label>
+			<input type="text" class="form-control" id="train_start">
+		</div>
+		<div class="date-input">
+			<label>Кінець області тренувальних даних</label>
+			<input type="text" class="form-control" id="train_end">
+		</div>
+		<div class="date-input">
+			<label>Кінець області даних для прогнозування</label>
+			<input type="text" class="form-control" id="prediction_end">
+		</div>
+		<button class="btn btn-primary" id="apply-date" type="button">Застосувати</button>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block scripts_after %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}

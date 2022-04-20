@@ -1,0 +1,44 @@
+.assets-dropdown {
+  background-color: transparent;
+  color: black;
+  border-color: #cdcdcd97;
+  border-width: 2px;
+  box-shadow: none;
+}
+
+.assets-dropdown:hover {
+  background-color: #e3effd99;
+  color: black;
+}
+
+.assets-dropdown:active .assets-dropdown:focus {
+  background-color: #e3effd99;
+  color: black;
+}
+
+.asset:hover {
+  background: #e3effd99;
+}
+
+.selected {
+  background: #98DFA7;
+}
+
+.container-fluid {
+  width: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.date-input {
+  margin-top: 10px; 
+}
+
+#apply-date {
+  margin-top: 10px;
+}
+
+.ui-datepicker { 
+  margin-left: auto;
+  margin-right: auto;
+}

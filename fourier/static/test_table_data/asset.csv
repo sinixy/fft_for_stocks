@@ -1,0 +1,76 @@
+symbol,description,type_id
+AAPL,Apple Inc.,1
+INTC,Intel Corporation,1
+F,Ford Motor Company,1
+CCL,Carnival Corporation & plc,1
+T,AT&T Inc.,1
+NVDA,NVIDIA Corporation,1
+LCID,Lucid Group Inc.,1
+VALE,Vale S.A.,1
+OWL,Blue Owl Capital Inc.,1
+AMD,Advanced Micro Devices Inc.,1
+NIO,NIO Inc.,1
+AAL,American Airlines Group Inc.,1
+AMC,AMC Entertainment Holdings Inc.,1
+CMCSA,Comcast Corporation,1
+ITUB,ItaГє Unibanco Holding S.A.,1
+PFE,Pfizer Inc.,1
+BAC,Bank of America Corporation,1
+BBD,Banco Bradesco S.A.,1
+PBR,PetrГіleo Brasileiro S.A. - Petrobras,1
+PLTR,Palantir Technologies Inc.,1
+BABA,Alibaba Group Holding Limited,1
+NOK,Nokia Corporation,1
+UBER,Uber Technologies Inc.,1
+SWN,Southwestern Energy Company,1
+SOFI,SoFi Technologies Inc.,1
+USDUAH=X,USD/UAH,2
+EURUSD=X,EUR/USD,2
+GBPUSD=X,GBP/USD,2
+AUDUSD=X,AUD/USD,2
+NZDUSD=X,NZD/USD,2
+EURJPY=X,EUR/JPY,2
+GBPJPY=X,GBP/JPY,2
+EURGBP=X,EUR/GBP,2
+EURCAD=X,EUR/CAD,2
+EURSEK=X,EUR/SEK,2
+EURCHF=X,EUR/CHF,2
+EURHUF=X,EUR/HUF,2
+EURJPY=X,EUR/JPY,2
+JPY=X,USD/JPY,2
+CNY=X,USD/CNY,2
+HKD=X,USD/HKD,2
+SGD=X,USD/SGD,2
+INR=X,USD/INR,2
+MXN=X,USD/MXN,2
+PHP=X,USD/PHP,2
+IDR=X,USD/IDR,2
+THB=X,USD/THB,2
+MYR=X,USD/MYR,2
+ZAR=X,USD/ZAR,2
+RUB=X,USD/RUB,2
+BTC-USD,Bitcoin,3
+ETH-USD,Ethereum,3
+BNB-USD,BinanceCoin,3
+SOL1-USD,Solana,3
+ADA-USD,Cardano,3
+EOS-USD,EOS,3
+XRP-USD,Ripple,3
+DOT1-USD,Polkadot,3
+LUNA1-USD,Terra,3
+LTC-USD,Litecoin,3
+TRX-USD,Tron,3
+LINK-USD,ChainLink,3
+AVAX-USD,Avalanche,3
+MATIC-USD,Polygon,3
+CRO-USD,CryptocomCoin,3
+ALGO-USD,Algorand,3
+MANA-USD,Decentraland,3
+XLM-USD,Stellar,3
+UNI3-USD,Uniswap,3
+VET-USD,VeChain,3
+XTZ-USD,Tezos,3
+FIL-USD,Filecoin,3
+XMR-USD,Monero,3
+CAKE-USD,PancakeSwap,3
+ETC-USD,EthereumClassic,3
